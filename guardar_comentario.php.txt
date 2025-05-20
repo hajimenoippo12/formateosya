@@ -1,0 +1,12 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nombre = htmlspecialchars($_POST["nombre"]);
+  $comentario = htmlspecialchars($_POST["comentario"]);
+  $fecha = date("Y-m-d H:i:s");
+
+  $registro = "[$fecha] $nombre: $comentario\n";
+
+  file_put_contents("comentarios.txt", $registro, FILE_APPEND);
+  echo "Gracias por tu comentario.";
+}
+?>
