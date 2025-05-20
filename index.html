@@ -9,53 +9,6 @@
     * {
       box-sizing: border-box;
     }
-
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-<script>
-  // Reemplaza estos datos con los de tu proyecto
-  const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_DOMINIO.firebaseapp.com",
-    projectId: "TU_PROJECT_ID",
-    storageBucket: "TU_PROJECT_ID.appspot.com",
-    messagingSenderId: "XXXXXXX",
-    appId: "APP_ID"
-  };
-
-  // Inicializar Firebase
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // Guardar comentario
-  document.getElementById('comment-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const comment = document.getElementById('comment').value.trim();
-
-    if (name && comment) {
-      await db.collection('comentarios').add({
-        nombre: name,
-        mensaje: comment,
-        fecha: new Date()
-      });
-      document.getElementById('comment-form').reset();
-    }
-  });
-
-  // Mostrar comentarios
-  db.collection('comentarios').orderBy('fecha', 'desc').onSnapshot(snapshot => {
-    const lista = document.getElementById('comments-list');
-    lista.innerHTML = '';
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      const item = document.createElement('li');
-      item.innerHTML = `<strong>${data.nombre}</strong>: ${data.mensaje}`;
-      lista.appendChild(item);
-    });
-  });
-</script>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
