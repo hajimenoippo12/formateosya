@@ -168,6 +168,19 @@
   ⭐ Deja tu reseña
 </a>
 </section>
+<section id="comentarios">
+  <h2>Deja tu comentario</h2>
+  <form action="guardar_comentario.php" method="POST" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 600px; margin: auto;">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 10px; margin-bottom: 10px;"><br>
+    
+    <label for="comentario">Comentario:</label><br>
+    <textarea id="comentario" name="comentario" rows="4" required style="width: 100%; padding: 10px;"></textarea><br>
+    
+    <button type="submit" style="margin-top: 10px; padding: 10px 20px; background-color: #004aad; color: white; border: none; border-radius: 6px;">Enviar</button>
+  </form>
+</section>
+
 
 <footer>
   <p>&copy; 2025 formateaya. Todos los derechos reservados.</p>
